@@ -44,9 +44,9 @@ fi
 LOCAL_FINGERPRINT=$(gpg -n -q --import --import-options import-show "$REPO_SIGNING_KEY_LOCATION" | awk '/pub/{getline; gsub(/^ +| +$/,""); print $1}')
 
 if [ $LOCAL_FINGERPRINT == "35BAA0B33E9EB396F59CA838C0BA5CE6DC6315A3" ]; then
-    print "\nThe key finterprint match ("$0").\n"
+    echo -e "\nThe key finterprint match (\"$LOCAL_FINGERPRINT\").\n"
 else
-    print "\nVerification failed: the fingerprint ("$0") does not match the expected one.\n"
+    echo -e "\nVerification failed: the fingerprint (\"$LOCAL_FINGERPRINT\") does not match the expected one.\n"
     exit 1
 fi
 
