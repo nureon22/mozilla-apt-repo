@@ -16,7 +16,12 @@ while true; do
             continue ;;
     esac
 done
-
+
+if ! which sudo > /dev/null; then
+    echo -e "Command 'sudo' not found, but can be instal with:\napt-get install sudo"
+    exit 1
+fi
+
 sudo true
 
 # Create a directory to store APT repository keys if it doesn't exist
