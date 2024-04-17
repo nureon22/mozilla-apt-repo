@@ -45,7 +45,7 @@ import_signing_key() {
     elif command_exists wget; then
         downloader="wget -q -O-"
     else
-        echo "${ERROR_COLOR}Error: Neither curl nor wget found. Please install one of them first.${RESET_COLOR}"
+        echo -e "${ERROR_COLOR}Error: Neither curl nor wget found. Please install one of them first.${RESET_COLOR}"
         exit 1
     fi
     $downloader "$REPO_SIGNING_KEY" | sudo tee "$REPO_SIGNING_KEY_LOCATION" > /dev/null
